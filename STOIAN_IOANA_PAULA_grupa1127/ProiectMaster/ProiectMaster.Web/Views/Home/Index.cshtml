@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ProductVM>
+
+@{ ViewData["Title"] = "Home Page";
+                var detailsRoute = "/Details/{0}"; }
+
+<div class="row">
+
+    @foreach (var product in Model)
+    {
+<div class="col-4">
+    <div class="card mb-4 border-primary" style="background: linear-gradient(to bottom, #ffcccc 0%, #ccffff 100%);">
+
+        <div class="card-header" style="height: 75px;">
+            <h4 class="my-0 font-weight-normal">
+                <label style="font-size:23px; color:steelblue;">@product.Name</label>
+            </h4>
+        </div>
+        @if (@product.ImagePath != null)
+        {
+        <img class="card-img-top" style="height: 200px; object-fit: cover" src="~/@product.ImagePath" alt="no image" />}
+         else {
+        <span class="fas fa-camera fa-10x" style="height: 200px; align-self: center"></span>
+        }
+
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <label style="font-size:20px; color:#a51313"><b>@product.Price lei</b></label>
+                </div>
+                <a href="@string.Format(detailsRoute, product.Id)" class="btn pull-right btn-outline-info">Detalii</a>
+            </div>
+        </div>
+
+    </div>
+</div>}
+
+</div>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<OrderVM>
+
+<h2 class="text-info">Istoric comenzi</h2>
+
+<br/>
+
+<ul>
+    @foreach (var item in Model)
+    {
+    <li>
+        <span class="font-weight-bolder" style="width: 200px;">Id Comanda:</span> @item.Id
+        <br />
+        <span style="width: 200px;"></span> <span class="font-weight-bolder">E-mail client:</span> @item.CustomerEmail
+        <br />
+        <span style="width: 200px;"></span> <span class="font-weight-bolder">Data comanda:</span> @item.OrderDate
+        <br /><br />
+
+    </li>
+    }
+</ul>
